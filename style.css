@@ -1,0 +1,110 @@
+
+    h1 {
+    text-align: center;
+    color: #8B4513; /* Mantendo a cor que você já definiu */
+    margin-top: 20px;
+}
+h3 { text-align: center;
+    color: #d2a07c; /* Mantendo a cor que você já definiu */
+    margin-top: 20px;}
+.btn-reserva{ background: #8B4513; color: #fff !important; padding: 10px 20px; border-radius: 5px; }
+{
+  text-align: center;
+}
+.topo h1 {
+  text-align: center;
+}
+
+  
+/* Reset Básico */
+* { margin: 0; padding: 0; box-box: border-box; }
+body { font-family: 'Poppins', sans-serif; color: #333; line-height: 1.6; scroll-behavior: smooth; }
+
+.container { max-width: 1100px; margin: auto; padding: 0 20px; }
+section { padding: 80px 0; }
+
+/* Navegação */
+header { background: #fff; padding: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+nav { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #8B4513; font-weight: bold; }
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 20px; }
+nav ul li a { text-decoration: none; color: #333; font-weight: 500; transition: 0.3s; }
+nav ul li a:hover { color: #8B4513; }
+.btn-reserva { background: #8B4513; color: #fff !important; padding: 10px 20px; border-radius: 5px; }
+
+/* Hero Section */
+.hero { 
+    height: 90vh; 
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/chalelindo.jpg') no-repeat center center/cover;
+    display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
+}
+.hero h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 20px; }
+.hero p { font-size: 1.2rem; margin-bottom: 30px; }
+.cta-button { background: #D2691E; color: #fff; padding: 15px 30px; text-decoration: none; border-radius: 30px; font-weight: bold; transition: 0.3s; }
+.cta-button:hover { background: #A0522D; }
+
+/* Seção História */
+.history-section { background: #f9f4f0; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.history-img img { width: 100%; border-radius: 10px; box-shadow: 10px 10px 0px #8B4513; }
+.subtitle { color: #8B4513; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; font-weight: bold; }
+.history-text h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 10px 0 20px; }
+
+/* Footer */
+footer { background: #333; color: #fff; text-align: center; padding: 40px 0; }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.5rem; }
+    nav ul { display: none; } /* Ideal fazer um menu hambúrguer aqui */
+}
+
+
+/* Reset Básico */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; color: #333; line-height: 1.6; scroll-behavior: smooth; }
+
+.container { max-width: 1100px; margin: auto; padding: 0 20px; }
+section { padding: 80px 0; }
+
+/* Navegação */
+header { background: #fff; padding: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+nav { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #8B4513; font-weight: bold; }
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 20px; }
+nav ul li a { text-decoration: none; color: #333; font-weight: 500; transition: 0.3s; }
+nav ul li a:hover { color: #8B4513; }
+.btn-reserva { background: #8B4513; color: #fff !important; padding: 10px 20px; border-radius: 5px; }
+
+/* Hero Section */
+.hero { 
+    height: 90vh; 
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/chalelindo.jpg
+    ') no-repeat center center/cover;
+    display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
+}
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 20px;background-color: #8B4513; }
+.hero p { font-size: 1.2rem; margin-bottom: 30px; }
+.cta-button { background: #D2691E; color: #fff; padding: 15px 30px; text-decoration: none; border-radius: 30px; font-weight: bold; transition: 0.3s; }
+.cta-button:hover { background: #A0522D; }
+
+/* Seção História */
+.history-section { background: #f9f4f0; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.history-img img { width: 100%; border-radius: 10px; box-shadow: 10px 10px 0px #8B4513; }
+.subtitle { color: #8B4513; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; font-weight: bold; }
+.history-text h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 10px 0 20px; }
+ 
+
+/* Footer */
+footer { background: #333; color: #fff; text-align: center; padding: 40px 0; }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; }
+    .hero h2 { font-size: 2.5rem; }
+    nav ul { display: none; } /* Ideal fazer um menu hambúrguer aqui */
+}

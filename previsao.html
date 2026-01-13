@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Previsão - De volta pro Aconchego</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('img/fundo-aconchego.jpg'); /* Verifique se o nome da imagem está correto */
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+        .header-clima {
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        h1 { color: #8B4513; margin: 0; }
+        .container-widget {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .btn-home {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background-color: #e67e22;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-clima">
+        <h1>De volta pro Aconchego</h1>
+        <p>Clique e sinta-se em casa</p>
+    </div>
+
+    <div class="container-widget">
+        <h2 style="color: #5d4037;">Previsão do Tempo em Tiradentes - MG</h2>
+        
+        <a class="weatherwidget-io" href="https://forecast7.com/pt/n21d11w44d18/tiradentes/" data-label_1="TIRADENTES" data-label_2="Minas Gerais" data-theme="pure" >TIRADENTES Minas Gerais</a>
+        
+        <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+        </script>
+
+        <a href="chalé.html" class="btn-home">Voltar para Home</a>
+    </div>
+
+</body>
+</html>

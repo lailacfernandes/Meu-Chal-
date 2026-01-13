@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Reserva - Chalé em Tiradentes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding: 50px; background-color: #f4f4f4; }
+        .reserva-container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        h2 { color: #d35400; text-align: center; }
+        label { display: block; margin: 15px 0 5px; font-weight: bold; }
+        input, select { width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        .btn-confirmar { background-color: #e67e22; color: white; border: none; padding: 15px; width: 100%; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold; margin-bottom: 10px; display: block; width: 100%; text-align: center; text-decoration: none; }
+        .btn-confirmar:hover { background-color: #d35400; }
+        .btn-whatsapp { background-color: #25d366; }
+        .btn-whatsapp:hover { background-color: #128c7e; }
+        #resumo-valor { background: #fff4e6; padding: 15px; border-radius: 5px; margin: 15px 0; border: 1px solid #e67e22; display: none; }
+    </style>
+</head>
+<body>
+
+<div class="reserva-container">
+    <h2>Reservar Chalé</h2>
+    
+    <form id="formReserva">
+        <form id="formReserva">
+    <label>Seu Nome:</label>
+    <input type="text" id="nome-cliente" placeholder="Digite seu nome completo" required>
+
+    <label>WhatsApp para Contato:</label>
+    <input type="text" id="tel-cliente" placeholder="(00) 00000-0000" required>
+
+    <label>Período de Aluguel:</label>
+    <input type="text" id="calendario" placeholder="Selecione as datas.." required>
+
+    <div id="resumo-valor">
+        <p style="margin: 0;">Total de diárias: <span id="total-dias">0</span></p>
+        <h3 style="color: #d35400; margin: 5px 0;">Total: R$ <span id="valor-total">0,00</span></h3>
+    </div>
+
+    <button type="button" class="btn-confirmar" onclick="finalizarNoSite()">Finalizar e Pagar</button>
+    
+    <button type="button" class="btn-confirmar btn-whatsapp" onclick="enviarReserva()">
+        Reservar pelo WhatsApp
+    </button>
+</form>
+<p style="text-align: center; font-size: 12px; color: #444; margin-top: 10px; background: #f0f0f0; padding: 5px; border-radius: 4px;">
+    🔒 Pagamento processado com segurança pelo Mercado Pago
+</p>
+    <div style="margin-top: 15px; text-align: center;">
+        <a href="chale.html" style="color: #d35400; text-decoration: none; font-weight: bold; font-size: 14px;">Sair e Voltar para o Chalé</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
+
+<script>
+    // Valor da diária configurado
+    const diaria = 400; 
+
+    // Função que calcula o valor total automaticamente
+    function atualizarCalculo(selecionadas) {
+        if (selecionadas.length === 2) {
+            const dataInicio = selecionadas[0];
+            const dataFim = selecionadas[1];
+            const diffTime = Math.abs(dataFim - dataInicio);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+            if (diffDays > 0) {
+                const total = diffDays * diaria; 
+                document.getElementById('resumo-valor').style.display = 'block';
+                document.getElementById('total-dias').innerText = diffDays;
+                document.getElementById('valor-total').innerText = total.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+            }
+        }
+    }
+
+    // Inicializa o calendário
+    flatpickr("#calendario", {
+        mode: "range",
+        minDate: "today",
+        locale: "pt",
+        dateFormat: "d/m/Y",
+        onChange: function(selectedDates) {
+            atualizarCalculo(selectedDates);
+        }
+    });
+
+    // Função para redirecionar ao Mercado Pago
+    function finalizarNoSite() {
+        const valorTotal = document.getElementById('valor-total').innerText;
+
+        if (valorTotal === "0,00") {
+            alert("Por favor, selecione as datas no calendário primeiro.");
+            return;
+        }
+
+        // Seu link de pagamento do Mercado Pago
+        const linkMercadoPago = "https://link.mercadopago.com.br/aconchegochale";
+
+        const mensagem = 
+            "Sua reserva ficou no valor total de R$ " + valorTotal + ".\n\n" +
+            "Ao clicar em OK, você será levado ao ambiente seguro do Mercado Pago.\n" +
+            "IMPORTANTE: No campo 'Valor', digite exatamente: " + valorTotal;
+
+        if (confirm(mensagem)) {
+            window.location.href = linkMercadoPago;
+        }
+    }
+
+    // Função para reserva via WhatsApp
+    function enviarReserva() {
+        const datas = document.getElementById('calendario').value;
+        const valor = document.getElementById('valor-total').innerText;
+
+        if (!datas || !datas.includes(" até ")) {
+            alert("Por favor, selecione uma data de entrada e uma de saída.");
+            return;
+        }
+
+        const texto = `Olá! Gostaria de reservar o chalé.\nPeríodo: ${datas}\nValor Total: R$ ${valor}`;
+        const url = `https://wa.me/5532998089106?text=${encodeURIComponent(texto)}`;
+        window.open(url, '_blank');
+    }
+</script>
+
+</body>
+</html>
